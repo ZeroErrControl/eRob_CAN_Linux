@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/eRobCAN_sendCOB.dir/eRobCAN_sendCOB.cpp.o -o eRobCAN_sendCOB  -lECanVci -lusb 
