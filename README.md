@@ -144,7 +144,7 @@ If the return value is `0x3e`, the command was sent successfully.
 
 If you encounter connection failure issues, you may need to add `sudo` before the command.
 
-For CAN message commands, refer to the **eRunner User Manual**: [Download link](https://www.zeroerr.cn/d/file/download/eRunner%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C_Ver1.4.pdf)
+For CAN message commands, refer to the **eRunner User Manual**: [Download link](https://en.zeroerr.cn/support/download)
 
 ## 12.Example (Velocity Mode)
 Here is an example of sending commands in velocity mode:
