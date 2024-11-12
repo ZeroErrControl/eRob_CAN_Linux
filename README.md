@@ -34,7 +34,8 @@ sudo su
 ## 4. Copy Driver Libraries to the GCC Compilation Directory
 Navigate to the USBCAN driver folder and copy libusb.so, libusb-1.0.so, and libECanVci.so.1 to the GCC compilation directory (default path is /usr/lib).
 
-``` bash 
+``` bash
+cd lib
 cp libusb.so libusb-1.0.so libECanVci.so.1 /usr/lib
 ```
 ## 5. Link the Libraries
@@ -46,20 +47,10 @@ ln -sv libECanVci.so.1 libECanVci.so
 Go to the USBCAN driver folder and compile the driver.
 
 ```bash
-cd /your_file_path/linux64
+cd ..
+mkdir build && cd build
+cmake ..
 make
-```
-
-## 7. Run the Test Program
-Run the test program to test USBCAN transmission.
-
-``` bash
-./test
-```
-If you encounter the following error, install the required library:
-
-```bash
-sudo apt-get install libusb-0.1-4
 ```
 :::tip
 If you encounter the following error, install the required library:
@@ -74,6 +65,12 @@ sudo apt-get install libusb-0.1-4
 ```
 :::
 
+## 7. Run the Test Program
+Run the test program to test USBCAN transmission.
+
+``` bash
+sudo ./test
+```
 After installation, run the test program again. If successful, the output should be as follows:
 
 - The **first parameter** `16`: 
@@ -96,7 +93,7 @@ Use the lsusb command to see the connected USBCANI-V503.
 
 To run the test (with admin privileges):
 ``` bash
-./test 4 0 3 0x1400 2 0 3 1000
+sudo ./test 4 0 3 0x1400 2 0 3 1000
 ```
 
 ## 9. Modify Udev Rules for Permanent User Access
@@ -128,10 +125,10 @@ make
 The installation of the eRob driver is now complete.
 
 ## 11. Compile and Run the eRobCAN Test
-Go to the `linux_test` folder, create a build directory, and compile the program:
+Go to the `eRob_CAN_Linux` folder, create a build directory, and compile the program:
 
 ``` bash
-mkdir build && cd build
+cd build
 cmake ..
 make
 ```
@@ -144,6 +141,8 @@ If the USBCAN device doesn't work, try reconnecting it and run the following com
 ```
 
 If the return value is `0x3e`, the command was sent successfully.
+
+If you encounter connection failure issues, you may need to add `sudo` before the command.
 
 For CAN message commands, refer to the **eRunner User Manual**: [Download link](https://www.zeroerr.cn/d/file/download/eRunner%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C_Ver1.4.pdf)
 
